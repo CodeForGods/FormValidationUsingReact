@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Button, Container ,Col,Row} from 'react-bootstrap';
+import { Form, Button} from 'react-bootstrap';
 import './Register.css';
 class RegisterSeller extends React.Component {
     constructor(props) {
@@ -47,7 +47,7 @@ class RegisterSeller extends React.Component {
         //email validation
         if (fieldName === "email") {
 
-            if (fieldValue == "") {
+            if (fieldValue === "") {
 
                 errorMessage.emailErrorMessage = "email cannot be empty";
                 visibility.email=false;
@@ -68,7 +68,7 @@ class RegisterSeller extends React.Component {
         const containsSpecial = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
         if (fieldName === "name") {
 
-            if (fieldValue == "") {
+            if (fieldValue === "") {
                 errorMessage.nameErrorMessage = "Name Cannot be Empty";
                 visibility.name=false;
             }
@@ -91,7 +91,7 @@ class RegisterSeller extends React.Component {
        
         if (fieldName === "address") {
 
-            if (fieldValue == "") {
+            if (fieldValue === "") {
                 errorMessage.addressErrorMessage = "Address Cannot be Empty";
                 visibility.address=false;
 
@@ -106,7 +106,7 @@ class RegisterSeller extends React.Component {
         var passwordExp = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
 
         if(fieldName==="password"){
-            if(fieldValue==""){
+            if(fieldValue===""){
                 errorMessage.passwordErrorMessage="Password format cannot be empty";
                 visibility.password=false;
             }
@@ -126,12 +126,12 @@ class RegisterSeller extends React.Component {
         if(fieldName==="confirm"){
             
             console.log("yes");
-            if(fieldValue==""){
+            if(fieldValue===""){
                 errorMessage.confirmError="This cannot be Empty";
                 visibility.confirm=false;
 
             }
-            else if(fieldValue!=this.state.fieldForm.password){
+            else if(fieldValue!==this.state.fieldForm.password){
                 errorMessage.confirmError="Password does not match";
                 visibility.confirm=false;
             }
@@ -141,9 +141,6 @@ class RegisterSeller extends React.Component {
             }
             
         }
-
-      
-
         this.setState({ fieldErrorMessage: errorMessage });
         this.setState({visibility:visibility});
         this.setState({buttonvisibility:this.state.visibility.name&&this.state.visibility.email&&this.state.visibility.address&&this.state.visibility.password&&this.state.visibility.confirm})
@@ -154,11 +151,16 @@ class RegisterSeller extends React.Component {
         return (
 
             <div className="container-fluid">
+              <div className="text-center m-5 shadow-none p-3 mb-5 bg-light rounded">
+                  <h2>Welcome to HashMap </h2>
+                  <h3 className="b-10">FORM VALIDATION USING REACTJS</h3>
+
+              </div>
 
 
-                <div id="formA">
+                <div id="formA" className="shadow-lg p-3 mb-5 bg-white rounded">
 
-                    <Form className="m-5" method="post">
+                    <Form className="" method="post">
 
                         <Form.Group className="mb-3" controlId="formBasicName">
                             <Form.Label>Name</Form.Label>
